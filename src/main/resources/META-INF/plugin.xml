@@ -1,18 +1,23 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.flowfan.eventbusplugin</id>
-    <name>eventbus-plugin Template</name>
+    <name>GreenRobot EventBus</name>
     <vendor>flowfan</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.kotlin</depends>
+    <depends>com.intellij.modules.java</depends>
 
     <resource-bundle>messages.MyBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.flowfan.eventbusplugin.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <codeInsight.lineMarkerProvider implementationClass="com.github.flowfan.eventbusplugin.providers.PostLineMarkerProvider"
+            language="kotlin" />
+        <codeInsight.lineMarkerProvider implementationClass="com.github.flowfan.eventbusplugin.providers.PostLineMarkerProvider"
+            language="JAVA" />
+        <codeInsight.lineMarkerProvider implementationClass="com.github.flowfan.eventbusplugin.providers.SubscribeLineMarkerProvider"
+            language="kotlin" />
+        <codeInsight.lineMarkerProvider implementationClass="com.github.flowfan.eventbusplugin.providers.SubscribeLineMarkerProvider"
+            language="JAVA" />
     </extensions>
-
-    <applicationListeners>
-        <listener class="com.github.flowfan.eventbusplugin.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
-    </applicationListeners>
 </idea-plugin>
