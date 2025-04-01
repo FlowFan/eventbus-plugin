@@ -11,6 +11,8 @@
     <resource-bundle>messages.MyBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
+        <toolWindow factoryClass="com.github.flowfan.eventbusplugin.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <postStartupActivity implementation="com.github.flowfan.eventbusplugin.startup.MyProjectActivity" />
         <codeInsight.lineMarkerProvider implementationClass="com.github.flowfan.eventbusplugin.providers.PostLineMarkerProvider"
             language="kotlin" />
         <codeInsight.lineMarkerProvider implementationClass="com.github.flowfan.eventbusplugin.providers.PostLineMarkerProvider"
